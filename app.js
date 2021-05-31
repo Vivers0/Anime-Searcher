@@ -32,18 +32,7 @@ class Searcher extends Discord.Client {
     }
 
     cmdHandler() {
-        try {
-            fs.readdir('./modules/commands/', (_, files) => {
-                files.map(file => {
-                    if (file.split('.')[1] !== 'js') return
-                    this.modules[config.prefix + file.split('.')[0]] = require(`./modules/commands/${file}`);
-                    console.log(`${file} was successfully loaded!`);
-                })
-            })
-        } catch (e) {
-            console.log(e);
-        }
-
+        
         this.on('message', async msg => {
             if (msg.author.bot) return;
             let message = msg.content.toLocaleLowerCase();
