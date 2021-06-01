@@ -32,7 +32,6 @@ class Searcher extends Discord.Client {
     }
 
     cmdHandler() {
-        
         this.on('message', async msg => {
             if (msg.author.bot) return;
             let message = msg.content.toLocaleLowerCase();
