@@ -1,8 +1,7 @@
 import { Message } from "discord.js";
-import { CommandHandler } from "../Handler/CommandHandler";
 
-export class PingCommand extends CommandHandler {
-    execute (message: Message) {
+export class PingCommand {
+    execute (message: Message): void {
         message.channel.send("Pong")
     }
 }
