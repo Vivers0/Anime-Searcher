@@ -1,12 +1,11 @@
 import * as Discord from 'discord.js'
+import { ClientReady } from './client/ready.client';
 
 export class Client {
-    client: Discord.Client = new Discord.Client();
+    client: Discord.Client;
+    private ready: ClientReady;
     constructor() {
-        this.client.login("NjE1MjEzMTgyOTg1ODMwNjQz.XWKv7A.v3C3edwrwXUHS-2LA__2tIyKCmY");
-        this.client.on('ready', () => console.log("Ready!"));
-    }
-    get init() {
-        return this.client;
+        this.client = new Discord.Client();
+        this.ready = new ClientReady(this.client);
     }
 }
