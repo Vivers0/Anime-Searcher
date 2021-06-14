@@ -1,12 +1,8 @@
 import { readdir } from "fs";
 import { join } from "path";
 
-interface IModule  {
-    [index: string]: Record<string, unknown>;
-}
-
 export class Handler {
-    modules: IModule = {};
+    private modules:any = [];
     readonly prefix?: string = process.env.PREFIX
     loadModules(): void {
         const path = join(__dirname, "..", "commands");
